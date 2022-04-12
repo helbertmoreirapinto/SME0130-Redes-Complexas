@@ -36,16 +36,12 @@ class Exercicio():
 
 
     def grau_medio(self):
-        sum = 0
-        for _, degree in self.G.degree():
-            sum+= degree
-        return sum / len(self.G)
+        return np.sum([degree/len(self.G) for _, degree in self.G.degree()])
     
 
     def coef_complexidade(self):
         return self.momento_grau(2) / self.grau_medio()
     
-
 
     def entropia_shannon(self):
         _,Pk = self.distribuicao_grau()
